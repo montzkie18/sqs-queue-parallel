@@ -39,6 +39,7 @@
         region: process.env.AWS_REGION,
         accessKeyId: process.env.AWS_ACCESS_KEY,
         secretAccessKey: process.env.AWS_SECRET_KEY,
+        endpoint: null,
         visibilityTimeout: null,
         waitTimeSeconds: 20,
         maxNumberOfMessages: 1,
@@ -159,7 +160,8 @@
       this.client = new AWS.SQS({
         region: this.config.region,
         accessKeyId: this.config.accessKeyId,
-        secretAccessKey: this.config.secretAccessKey
+        secretAccessKey: this.config.secretAccessKey,
+        endpoint: this.config.endpoint
       });
       async.waterfall([
         function(next) {

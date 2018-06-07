@@ -13,6 +13,7 @@ module.exports = class SqsQueueParallel extends events.EventEmitter
 			region: process.env.AWS_REGION
 			accessKeyId: process.env.AWS_ACCESS_KEY
 			secretAccessKey: process.env.AWS_SECRET_KEY
+			endpoint: null
 			visibilityTimeout: null
 			waitTimeSeconds: 20
 			maxNumberOfMessages: 1
@@ -94,6 +95,7 @@ module.exports = class SqsQueueParallel extends events.EventEmitter
 			region: @config.region
 			accessKeyId: @config.accessKeyId
 			secretAccessKey: @config.secretAccessKey
+			endpoint: @config.endpoint
 		async.waterfall [
 			(next) ->
 				self.client.listQueues
