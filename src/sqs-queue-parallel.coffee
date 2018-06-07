@@ -102,7 +102,7 @@ module.exports = class SqsQueueParallel extends events.EventEmitter
 					QueueNamePrefix: self.config.name
 				, next
 			(data, next) ->
-				re = new RegExp "/[\\d]+/#{ self.config.name }$"
+				re = new RegExp "/[\\d|queue]+/#{ self.config.name }$"
 				self.emit 'connection', data.QueueUrls
 				self.emit 'connect', self.url = url for url in data.QueueUrls when re.test url
 				unless self.url

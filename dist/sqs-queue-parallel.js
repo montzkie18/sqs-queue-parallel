@@ -1,5 +1,5 @@
 /**
- * sqs-queue-parallel 0.1.6 <https://github.com/bigluck/sqs-queue-parallel>
+ * @montzkie18/sqs-queue-parallel 0.1.6 <https://github.com/bigluck/sqs-queue-parallel>
  * Create a poll of Amazon SQS queue watchers and each one can receive 1+ messages
  *
  * Available under MIT license <https://github.com/bigluck/sqs-queue-parallel/raw/master/LICENSE>
@@ -170,7 +170,7 @@
           }, next);
         }, function(data, next) {
           var re, url, _i, _len, _ref;
-          re = new RegExp("/[\\d]+/" + self.config.name + "$");
+          re = new RegExp("/[\\d|queue]+/" + self.config.name + "$");
           self.emit('connection', data.QueueUrls);
           _ref = data.QueueUrls;
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
